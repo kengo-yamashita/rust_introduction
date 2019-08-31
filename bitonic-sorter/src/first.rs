@@ -6,14 +6,17 @@ pub fn sort(x: &mut [u32], up: bool) {
         sub_sort(x, up);
     }
 }
-// パブリックにした関数　中身は未実装
 
 fn sub_sort(x: &mut [u32], up: bool) {
-    unimplemented!();
+    if x.len() > 1 {
+        compare_and_swap(x, up);
+        let mid_point = x.len() / 2;
+        sub_sort(&mut x[..mid_point], up);
+        sub_sort(&mut x[mid_point..], up);
+    }
+    
 }
-// プライベート関数　中身は未実装
 
 fn compare_and_swap(x: &mut [u32], up: bool) {
     unimplemented!();
 }
-// プライベート関数　中身は未実装
